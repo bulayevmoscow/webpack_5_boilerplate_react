@@ -6,4 +6,16 @@ import styles2 from  './stylestwo.module.scss'
 // console.log(styles);
 // console.log(a,b );
 
-setTimeout(() => document.body.classList.add(styles2.red), 1)
+// setTimeout(() => document.body.classList.add(styles2.red), 1)
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+const root = ReactDOM.createRoot(
+    document.getElementById('root')
+)
+root.render(
+    <React.StrictMode>
+        <h1>hi!</h1>
+    </React.StrictMode>
+);
