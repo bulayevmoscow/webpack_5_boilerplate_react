@@ -1,6 +1,6 @@
 console.log('34234234234');
-import styles from  './styles.module.css'
-import styles2 from  './stylestwo.module.scss'
+// import styles from  './styles.module.css'
+// import styles2 from  './stylestwo.module.scss'
 // let a = [1,2,3].map(x => x + 1)
 // let b = [1,2,3].at(-2)
 // console.log(styles);
@@ -10,12 +10,17 @@ import styles2 from  './stylestwo.module.scss'
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// @ts-ignore
+import image from './image.png'
 
 const root = ReactDOM.createRoot(
-    document.getElementById('root')
+    // @ts-ignore
+    document.getElementById('root') as HTMLDivElement
 )
 root.render(
     <React.StrictMode>
-        <h1>hi!</h1>
+        <div>hi!
+            <img src={image} alt=""/>
+        </div>
     </React.StrictMode>
 );

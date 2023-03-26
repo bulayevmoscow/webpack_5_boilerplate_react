@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-    entry: './src/main.js',
+    entry: './src/main.tsx',
     mode: "production",
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -12,11 +12,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js)x?$/,
-                include: path.resolve(__dirname, 'src'),
-                use: {
-                    loader: 'babel-loader',
-                },
+                test: /\.(js|jsx|tsx|ts)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "ts-loader"
+                    },
+                    {
+                        loader: 'babel-loader',
+                    }
+                ],
             },
             {
                 test: /\.css$/,
@@ -25,7 +30,7 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                            modules:{
+                            modules: {
                                 localIdentName: "[local]_[hash:base64:5]",
                             }
                         }
@@ -41,7 +46,7 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                            modules:{
+                            modules: {
                                 localIdentName: "[local]_[hash:base64:5]",
                             }
                         }
@@ -49,6 +54,10 @@ module.exports = {
                     // Compiles Sass to CSS
                     "sass-loader",
                 ],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                type: "asset/resource",
             },
         ],
 
